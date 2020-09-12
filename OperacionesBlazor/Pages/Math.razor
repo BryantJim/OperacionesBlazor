@@ -1,0 +1,49 @@
+﻿@page "/math"
+                
+<h3>Operaciones matemática</h3>
+
+<div style="padding-top: 5px">
+    <label>Primer número: </label>
+    <input type="number" @bind-value="PrimerNumero"/>
+</div>
+
+<div style="padding-top: 5px">
+    <label>Segundo número: </label>
+    <input type="number" @bind-value="SegundoNumero" />
+</div>
+
+<div style="margin: 10px 160px">
+    <button class="btn btn-sm btn-success" @onclick="Calcular">Calcular</button>
+</div>
+
+<div style="padding-top: 5px">
+    <label>La suma es: @Suma</label>
+</div>
+
+<div style="padding-top: 5px">
+    <label>La resta es: @Resta</label>
+</div>
+
+<div style="padding-top: 5px">
+    <label>La multiplicación es: @Multiplicacion</label>
+</div>
+
+
+@code {
+    public float PrimerNumero;
+    public float SegundoNumero;
+    public float Suma;
+    public float Resta;
+    public float Multiplicacion;
+
+    public void Calcular()
+    {
+        Suma = (PrimerNumero + SegundoNumero);
+        Resta = (PrimerNumero - SegundoNumero);
+        Multiplicacion = (PrimerNumero * SegundoNumero);
+
+        if (Multiplicacion == -0)
+            Multiplicacion = 0;
+    }
+
+}
